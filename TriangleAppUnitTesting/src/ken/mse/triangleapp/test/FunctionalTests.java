@@ -13,6 +13,9 @@ public class FunctionalTests extends ActivityInstrumentationTestCase2<MainActivi
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
+		
+		//Reference loaded Activity
+		mMainActivity = getActivity();		
 	}
 
 	@Override
@@ -23,6 +26,7 @@ public class FunctionalTests extends ActivityInstrumentationTestCase2<MainActivi
 	public void test_canLoadActivity(){
 		//User launches TriangleApp and sees the main screen
 		assertNotNull("Cannot get MainActivity", mMainActivity);
+		assertSame("Loaded Activity class is not MainActivity", MainActivity.class, mMainActivity.getClass());
 	}
 
 }
