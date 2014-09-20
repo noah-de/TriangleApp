@@ -14,6 +14,9 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
+		
+		//Reference initialText object in MainActivity
+		mInitialText = (TextView) getActivity().findViewById(ken.mse.triangleapp.R.id.initialText);
 	}
 
 	@Override
@@ -24,5 +27,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	public void test_canGetInitialText(){
 		//User sees the screen and looks at the initial message displayed
 		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+		assertEquals("Hello world!", mInitialText.getText());
 	}
 }
