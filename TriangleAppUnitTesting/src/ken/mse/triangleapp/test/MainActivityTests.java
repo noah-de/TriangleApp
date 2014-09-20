@@ -2,8 +2,11 @@ package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.TextView;
 
 public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActivity>{
+	private TextView mInitialText;
+	
 	public MainActivityTests(){
 		super(MainActivity.class);
 	}
@@ -16,5 +19,10 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	@Override
 	protected void tearDown() throws Exception {
 		super.tearDown();
+	}
+
+	public void test_canGetInitialText(){
+		//User sees the screen and looks at the initial message displayed
+		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
 	}
 }
