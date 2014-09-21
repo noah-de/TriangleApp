@@ -10,7 +10,11 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	public MainActivityTests(){
 		super(MainActivity.class);
 	}
-
+	
+	/***
+	 * Initial Setup before running tests
+	 * State: Activity is already loaded with layout
+	 */
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
