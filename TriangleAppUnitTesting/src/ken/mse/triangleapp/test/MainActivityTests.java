@@ -46,7 +46,7 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		sendKeys("1");
 
 		// submit the entered values
-		assertEquals("Input box did not get the expected value", "1", mInput.getText());
+		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());
 
 		
 
