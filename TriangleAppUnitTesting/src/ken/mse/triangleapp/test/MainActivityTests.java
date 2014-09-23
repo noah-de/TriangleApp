@@ -2,6 +2,7 @@ package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.TextView;
 
 public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActivity>{
@@ -28,6 +29,12 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		super.tearDown();
 	}
 
+	@SmallTest
+	public void testViews() {
+	assertNotNull(getActivity());
+	assertNotNull(mInitialText);
+	}
+	
 	public void test_canGetInitialText(){
 		//User sees the screen and looks at the initial message displayed
 		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
