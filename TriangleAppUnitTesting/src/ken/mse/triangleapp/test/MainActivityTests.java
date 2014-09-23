@@ -3,6 +3,7 @@ package ken.mse.triangleapp.test;
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
+import android.test.suitebuilder.annotation.SmallTest;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -37,18 +38,28 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		assertNotNull("Could not get the object that displays 'Hello world!'", mText);
 		assertEquals("Enter Lengths:", mText.getText());
 	}
+	
+	@SmallTest
+	public void testViews() {
+	assertNotNull(getActivity());
+	assertNotNull(mText);
+	}
+	
+	public void test_canGetText(){
+		//User sees the screen and looks at the initial message displayed
+		assertNotNull("Initial text did not read as expected", mText);
+		assertEquals("Input: Values for TriangleApp?:", mText.getText());
+	}
+	                                                                                                                                                                                                                                                                                                                                                         
+	public void test_canInputValues(){                                                                                                                                       
+		//Find an input box                                                                                                                                              
+		assertNotNull("Could not get the input text object'", mInput);                                                                                                   
 
-	public void test_canInputValues(){
-		//Find an input box
-		assertNotNull("Could not get the input text object'", mInput);
-		
-		TouchUtils.tapView(this, mInput);
-		sendKeys("1");
+		TouchUtils.tapView(this, mInput);                                                                                                                                
+		sendKeys("1");                                                                                                                                                   
 
-		// submit the entered values
-		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());
-
-		
+		// submit the entered values                                                                                                                                     
+		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());                                                                      
 
 	}
 	
