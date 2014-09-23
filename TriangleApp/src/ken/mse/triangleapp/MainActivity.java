@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -17,6 +18,8 @@ public class MainActivity extends Activity {
 	private float mLength1;
 	private float mLength2;
 	private float mLength3;
+	
+	private EditText mInput;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,10 @@ public class MainActivity extends Activity {
 		
 		//Example: Get the initialText Object in the layout
 		mInitialText = (TextView) findViewById(R.id.initialText);
+		
+		mInput = (EditText) findViewById(R.id.input1);
+		
+		
 		//Output it's text
 		String initialTextStr = mInitialText.getText().toString();
 		Log.d(sTag, "Initial Text: " + initialTextStr);

@@ -33,4 +33,28 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
 		assertEquals("Hello world!", mInitialText.getText());
 	}
+
+	public void test_canInputValues(){
+		//Find an input box
+		assertNotNull("Could not get the input text object'", mInitialText);
+		assertEquals("Hello world!", mInitialText.getText());
+	}
+	
+//	public void test_inputExactlyThree(){
+//		//Input 3 values is accepted
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
+//	
+//	public void test_inputLessThanThree(){
+//		//less than 3 causes error
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
+//	
+//	public void test_inputMoreThanThree(){
+//		//more than 3 values causes error
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
 }
