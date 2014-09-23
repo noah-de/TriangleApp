@@ -2,11 +2,14 @@ package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.TouchUtils;
 import android.test.suitebuilder.annotation.SmallTest;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActivity>{
-	private TextView mInitialText;
+	private TextView mText;
+	private EditText mInput;
 	
 	public MainActivityTests(){
 		super(MainActivity.class);
@@ -21,7 +24,8 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		super.setUp();
 		
 		//Reference initialText object in MainActivity
-		mInitialText = (TextView) getActivity().findViewById(ken.mse.triangleapp.R.id.initialText);
+		mText = (TextView) getActivity().findViewById(ken.mse.triangleapp.R.id.initialText);
+		mInput = (EditText) getActivity().findViewById(ken.mse.triangleapp.R.id.input1);
 	}
 
 	@Override
@@ -32,12 +36,23 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	@SmallTest
 	public void testViews() {
 	assertNotNull(getActivity());
-	assertNotNull(mInitialText);
+	assertNotNull(mText);
 	}
 	
-	public void test_canGetInitialText(){
+	public void test_canGetText(){
 		//User sees the screen and looks at the initial message displayed
-		assertNotNull("Initial text did not read as expected", mInitialText);
-		assertEquals("Input: Values for TriangleApp?:", mInitialText.getText());
+		assertNotNull("Initial text did not read as expected", mText);
+		assertEquals("Input: Values for TriangleApp?:", mText.getText());
+	}
+	                                                                                                                                                                                                                                                                                                                                                         
+	public void test_canInputValues(){                                                                                                                                       
+		//Find an input box                                                                                                                                              
+		assertNotNull("Could not get the input text object'", mInput);                                                                                                   
+
+		TouchUtils.tapView(this, mInput);                                                                                                                                
+		sendKeys("1");                                                                                                                                                   
+
+		// submit the entered values                                                                                                                                     
+		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());                                                                      
 	}
 }
