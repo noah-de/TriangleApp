@@ -12,7 +12,7 @@
         android:id="@+id/initialText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="@string/input" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -38,7 +38,7 @@
         android:layout_alignRight="@+id/button1"
         android:layout_below="@+id/button1"
         android:layout_marginTop="18dp"
-        android:text="Output:" />
+        android:text="@string/output" />
 
     <TextView
         android:id="@+id/output"

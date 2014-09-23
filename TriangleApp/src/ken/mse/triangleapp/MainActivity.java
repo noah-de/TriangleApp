@@ -32,17 +32,12 @@ public class MainActivity extends Activity {
 
 		//Example: Get the initialText Object in the layout
 		mInitialText = (TextView) findViewById(R.id.initialText);
+		
 		//Output it's text
 		String initialTextStr = mInitialText.getText().toString();
 		Log.d(sTag, "Initial Text: " + initialTextStr);
-
-
-
-
-
-
-
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -104,10 +99,11 @@ public class MainActivity extends Activity {
 		mInputString = (TextView) findViewById(R.id.input1);
 
 		mOutputString = (TextView) findViewById(R.id.output);
-		mOutputString.setTextColor(Color.rgb(0,0,0)); // default color
+		mOutputString.setTextColor(Color.rgb(155,0,0)); // default color
 
 		// Output lengths
 		String lengthsTextStr = mInputString.getText().toString();
+		
 		String outputStr = "";
 
 		// Parse input
@@ -115,7 +111,6 @@ public class MainActivity extends Activity {
 		String delims = "[ ,;]";
 		String[] tokens = lengthsTextStr.split(delims);
 
-		// Exit app if 0 entered
 		
 		int numberOfTriangleLengths = tokens.length;
 		
@@ -133,7 +128,8 @@ public class MainActivity extends Activity {
 		{
 			mLength3 = Float.parseFloat(tokens[2]);
 		}
-		
+
+		// Exit app if 0 entered
 		if(mLength1 == 0)
 		{
 			mOutputString.setText("The End");

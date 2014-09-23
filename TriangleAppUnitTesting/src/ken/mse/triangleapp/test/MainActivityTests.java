@@ -37,7 +37,7 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	
 	public void test_canGetInitialText(){
 		//User sees the screen and looks at the initial message displayed
-		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
-		assertEquals("Hello world!", mInitialText.getText());
+		assertNotNull("Initial text did not read as expected", mInitialText);
+		assertEquals("Input: Values for TriangleApp?:", mInitialText.getText());
 	}
 }
