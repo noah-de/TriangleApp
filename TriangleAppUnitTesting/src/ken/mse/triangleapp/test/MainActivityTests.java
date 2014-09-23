@@ -33,6 +33,12 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		super.tearDown();
 	}
 
+	public void test_canGetText(){
+		//User sees the screen and looks at the initial message displayed
+		assertNotNull("Could not get the object that displays 'Hello world!'", mText);
+		assertEquals("Enter Lengths:", mText.getText());
+	}
+	
 	@SmallTest
 	public void testViews() {
 	assertNotNull(getActivity());
@@ -54,5 +60,24 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 
 		// submit the entered values                                                                                                                                     
 		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());                                                                      
+
 	}
+	
+//	public void test_inputExactlyThree(){
+//		//Input 3 values is accepted
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
+//	
+//	public void test_inputLessThanThree(){
+//		//less than 3 causes error
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
+//	
+//	public void test_inputMoreThanThree(){
+//		//more than 3 values causes error
+//		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
+//		assertEquals("Hello world!", mInitialText.getText());
+//	}
 }
