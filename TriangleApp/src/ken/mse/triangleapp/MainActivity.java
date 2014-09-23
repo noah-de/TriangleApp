@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 	//Activity's Tag for logs
 	private static final String sTag = MainActivity.class.getSimpleName();
 	
-	private TextView mInitialText;
+	private TextView mText;
 
 	private TextView mInputString;
 	private float mLength1;
@@ -31,13 +31,13 @@ public class MainActivity extends Activity {
 		//*** Screen is now loaded with a layout, manipulate objects in layout below ***
 		
 		//Example: Get the initialText Object in the layout
-		mInitialText = (TextView) findViewById(R.id.initialText);
+		mText = (TextView) findViewById(R.id.initialText);
 		
 		mInput = (EditText) findViewById(R.id.input1);
 		
 		
 		//Output it's text
-		String initialTextStr = mInitialText.getText().toString();
+		String initialTextStr = mText.getText().toString();
 		Log.d(sTag, "Initial Text: " + initialTextStr);
 			
 		
