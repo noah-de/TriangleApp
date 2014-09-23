@@ -2,6 +2,7 @@ package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.TouchUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -41,14 +42,8 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		//Find an input box
 		assertNotNull("Could not get the input text object'", mInput);
 		
-		// input values to the input box
-		getActivity().runOnUiThread(new Runnable() {
-			
-			@Override
-			public void run() {
-				mInput.setText("1");				
-			}
-		});
+		TouchUtils.tapView(this, mInput);
+		sendKeys("1");
 
 		// submit the entered values
 		assertEquals("Input box did not get the expected value", "1", mInput.getText());
