@@ -2,10 +2,12 @@ package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
 import android.test.ActivityInstrumentationTestCase2;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActivity>{
-	private TextView mInitialText;
+	private TextView mText;
+	private EditText mInput;
 	
 	public MainActivityTests(){
 		super(MainActivity.class);
@@ -20,7 +22,8 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		super.setUp();
 		
 		//Reference initialText object in MainActivity
-		mInitialText = (TextView) getActivity().findViewById(ken.mse.triangleapp.R.id.initialText);
+		mText = (TextView) getActivity().findViewById(ken.mse.triangleapp.R.id.initialText);
+		mInput = (EditText) getActivity().findViewById(ken.mse.triangleapp.R.id.input1);
 	}
 
 	@Override
@@ -28,16 +31,30 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		super.tearDown();
 	}
 
-	public void test_canGetInitialText(){
+	public void test_canGetText(){
 		//User sees the screen and looks at the initial message displayed
-		assertNotNull("Could not get the object that displays 'Hello world!'", mInitialText);
-		assertEquals("Hello world!", mInitialText.getText());
+		assertNotNull("Could not get the object that displays 'Hello world!'", mText);
+		assertEquals("Enter Lengths:", mText.getText());
 	}
 
 	public void test_canInputValues(){
 		//Find an input box
-		assertNotNull("Could not get the input text object'", mInitialText);
-		assertEquals("Hello world!", mInitialText.getText());
+		assertNotNull("Could not get the input text object'", mInput);
+		
+		// input values to the input box
+		getActivity().runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				mInput.setText("1");				
+			}
+		});
+
+		// submit the entered values
+		assertEquals("Input box did not get the expected value", "1", mInput.getText());
+
+		
+
 	}
 	
 //	public void test_inputExactlyThree(){
