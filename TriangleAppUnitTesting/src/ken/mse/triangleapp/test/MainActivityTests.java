@@ -57,8 +57,7 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 
 		TouchUtils.tapView(this, mInput);                                                                                                                                
 		sendKeys("1");                                                                                                                                                   
-
-		// submit the entered values                                                                                                                                     
+                                                                                                                                    
 		assertEquals("Input box did not get the expected value", "1", mInput.getText().toString());                                                                      
 
 	}
@@ -66,53 +65,27 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	public void test_inputGeneratesOutput(){
 		TouchUtils.tapView(this, mInput);
 		
-		//assertNotSame("Output message has changed", "expected", mOutput.getText().toString());
-		
+		String first_message = mOutput.getText().toString();
 		
 		getInstrumentation().sendStringSync("3");
 		TouchUtils.tapView(this, mButton1);
 		
-		assertTrue("Message is not displayed", mOutput.getText().toString().contains("invalid input"));
-		//("Message is not displayed", " [3.0, ] invalid input (need more input)", );	
+		String second_message = mOutput.getText().toString();
+		
+		assertTrue("Message is not displayed", second_message.contains("invalid input"));
+		
+		assertNotSame("Output message has changed", first_message, second_message);
 	}
 	
 	public void test_inputExactlyThree(){
-		//Input 3 values is accepted
+
 		TouchUtils.tapView(this, mInput);
-//		String inputStr = "3 5 7";
-//		sendKeys(inputStr);
+
 		getInstrumentation().sendStringSync("3 5 7");
 		TouchUtils.tapView(this, mButton1);
 		assertTrue("Message does not contain expected string", mOutput.getText().toString().contains("3.0, 5.0, 7.0"));
 		assertFalse("Alert displays false alert", mOutput.getText().toString().contains("invalid input"));
-		// assertEquals("Error string matches expectation", "[3.0, 5.0, 7.0] = ", mOutput.getText().toString());
-		// output text: textView1
-		// button: button1
-		
-		
-		
 	}
-	
-//	@SmallTest
-//	public void testKilosToPounds() {
-//	   // clearing the mKilos edit text
-//	   mKilos.clearComposingText();
-//	   // tapping the mKilos edit text through TouchUtils class
-//	   TouchUtils.tapView(this, mKilos);
-//	   // sending input to mKilos as 1
-//	   sendKeys("1");
-//	   // Clikcing on the button
-//	   TouchUtils.clickView(this, mCPounds);
-//	   double pounds;
-//	   try {
-//	   // getting the input from the mTextView reference
-//	     pounds = Double.parseDouble(mTextView.getText().toString());
-//	   } catch (NumberFormatException e) {
-//	     pounds = -1;
-//	   }
-//	   // checking the pounds value with the target value.
-//	   assertTrue("1 kilo is 2.20462262 pounds", pounds > 2.2 && pounds < 2.3);
-//	}
 
 //	public void test_inputLessThanThree(){
 //		//less than 3 causes error
