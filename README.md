@@ -1,3 +1,2 @@
 TriangleApp
 ===========
-Inserted text
