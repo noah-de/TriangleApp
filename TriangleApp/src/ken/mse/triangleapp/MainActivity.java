@@ -98,7 +98,7 @@ public class MainActivity extends Activity {
 
 	// Additions by: Keir Trotter
 	/** Called when the user clicks the Enter button */
-	public void enterMessage(View view) 
+	public void enterMessage(View view)
 	{
 	    // Do something in response to button
 

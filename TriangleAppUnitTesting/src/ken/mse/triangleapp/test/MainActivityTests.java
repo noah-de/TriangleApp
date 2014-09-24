@@ -78,8 +78,22 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		// make sure the message is not the same
 		assertNotSame("Output message has changed", first_message, second_message);
 	}
-	
 
+	public void test_inputLessThanThree(){
+		TouchUtils.tapView(this, mInput);
+		String first_message = mOutput.getText().toString();
+		assertFalse("No error before entering text", first_message.contains("need more input"));
+		getInstrumentation().sendStringSync("3");
+		
+		TouchUtils.tapView(this, mButton1);
+		String second_message = mOutput.getText().toString();
+		
+		assertTrue("Message is not displayed", second_message.contains("invalid input"));
+		
+		// make sure the message is not the same
+		assertNotSame("Output message has changed", first_message, second_message);
+	}
+	
 	public void test_inputExactlyThree(){
 		TouchUtils.tapView(this, mInput);
 		getInstrumentation().sendStringSync("3 5 7");
@@ -110,6 +124,24 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		assertTrue("Message does not contain expected string", mOutput.getText().toString().contains("not between 1 and 100"));
 		assertFalse("Alert displays false alert", mOutput.getText().toString().contains("invalid input"));
+	}
+	
+	public void test_inputZeroDisplaysMessage(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("0");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertEquals("Alert displays false alert", "The End", mOutput.getText().toString());
+	}
+	
+	public void test_inputZeroExitsApp(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("0");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertTrue(getActivity().isFinishing());
 	}
 
 }
