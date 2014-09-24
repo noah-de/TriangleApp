@@ -3,6 +3,8 @@
 
     <string name="app_name">TriangleApp</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="input">Input: Values for TriangleApp?:</string>
+    <string name="button_enter">Enter</string>
+    <string name="output">Output: </string>
 
 </resources>
