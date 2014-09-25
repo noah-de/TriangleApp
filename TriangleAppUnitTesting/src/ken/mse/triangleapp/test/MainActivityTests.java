@@ -1,8 +1,10 @@
 package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
+import ken.mse.triangleapp.StringUtils;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
+import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -181,4 +183,52 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		assertEquals("Alert displays Error on bad line lengths", "Error", mOutput.getText().toString());
 	}
 
+	
+	//Eric - Was Testing StringUtils
+	public void test_inputHasThreePositiveNumericValues(){
+		//Simulate user typing '2,5,7'
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("2,5,7");
+		
+		//Check input String has 3 positive numbers
+		int countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
+		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
+		
+		//Clear Input
+		int inputStrCount = mInput.getText().length();
+		for(int i=0; i < inputStrCount; i++){
+			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
+		}
+		
+		
+		//Simulate user typing '2;5;7'
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("2;5;7");
+		
+		//Check input String has 3 positive numbers
+		countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
+		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
+		
+		//Clear Input
+		inputStrCount = mInput.getText().length();
+		for(int i=0; i < inputStrCount; i++){
+			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
+		}
+		
+		
+		
+		//Simulate user typing '2 5 7'
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("2 5 7");
+		
+		//Check input String has 3 positive numbers
+		countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
+		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
+		
+		//Clear Input
+		inputStrCount = mInput.getText().length();
+		for(int i=0; i < inputStrCount; i++){
+			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
+		}
+	}
 }
