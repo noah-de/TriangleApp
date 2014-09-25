@@ -123,6 +123,11 @@ public class MainActivity extends Activity {
 		//============================================================================
 
 		mInputString.setText("");
+		
+		if(returnStatus)
+		{
+			mOutputString.setTextColor(Color.rgb(0,0,0));
+		}
 
 		return returnStatus;
 	}
@@ -200,7 +205,7 @@ public class MainActivity extends Activity {
 				Log.d(sTag, "Triangle lengths Text: " + mLength1 + " " + mLength2 + " " + mLength3 +  " Sides:" + triangleLengthArr.length);
 				
 				//Set Output Message
-				mOutputString.setTextColor(Color.rgb(155,0,0)); // default color
+				mOutputString.setTextColor(Color.rgb(0,0,0)); // default color
 				mOutputString.setText(outputStr);
 				mInputString.setText("");
 			}
