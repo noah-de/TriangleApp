@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 
 		if((mLength1 < 1) || (mLength1 > 100))
 		{
-			outputStr = outputStr + " Triangle Length 1 not between 1 and 100: " + mLength1;
+			outputStr = outputStr + " Triangle Length 1 not between 1 and 100: " + mLength1 + "\n";
 			mOutputString.setTextColor(Color.rgb(200,0,0));
 			mOutputString.setText(outputStr);
 			Log.d(sTag, "Triangle Length 1 not between 1 and 100: " + mLength1);
@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
 
 		if((mLength2 < 1) || (mLength2 > 100))
 		{
-			outputStr = outputStr + " Triangle Length 2 not between 1 and 100: " + mLength2;
+			outputStr = outputStr + " Triangle Length 2 not between 1 and 100: " + mLength2 + "\n";
 			mOutputString.setTextColor(Color.rgb(200,0,0));
 			mOutputString.setText(outputStr);
 			Log.d(sTag, "Triangle Length 2 not between 1 and 100: " + mLength2);
@@ -85,12 +85,41 @@ public class MainActivity extends Activity {
 
 		if((mLength3 < 1) || (mLength3 > 100))
 		{
-			outputStr = outputStr + " Triangle Length 3 not between 1 and 100: " + mLength3;
+			outputStr = outputStr + " Triangle Length 3 not between 1 and 100: " + mLength3 + "\n";
 			mOutputString.setTextColor(Color.rgb(200,0,0));
 			mOutputString.setText(outputStr);
 			Log.d(sTag, "Triangle Length 3 not between 1 and 100: " + mLength3);
 			returnStatus = false;
 		}
+		
+		//Eric - Add Additional Validity (After individual sides have valid lengths)
+		//Validate sum of Two Sides are not greater than the last side
+		if(returnStatus){
+			if(mLength1 > mLength2 + mLength3){
+				outputStr = outputStr + " Invalid!\n"
+							+ " Any side of a triangle must be shorter than the sum of the other two sides: " 
+							+ mLength1 + " > " + mLength2 + " + " + mLength3;
+				mOutputString.setTextColor(Color.rgb(200,0,0));
+				mOutputString.setText(outputStr);
+				returnStatus = false;
+			}else if(mLength2 > mLength1 + mLength3){
+				outputStr = outputStr + " Invalid!\n"
+						+ " Any side of a triangle must be shorter than the sum of the other two sides: "
+						+ mLength2 + " > " + mLength1 + " + " + mLength3;
+				mOutputString.setTextColor(Color.rgb(200,0,0));
+				mOutputString.setText(outputStr);
+				returnStatus = false;
+			}else if(mLength3 > mLength1 + mLength2){
+				outputStr = outputStr + " Invalid!\n"
+						+ " Any side of a triangle must be shorter than the sum of the other two sides: "
+						+ mLength3 + " > " + mLength1 + " + " + mLength2;
+				mOutputString.setTextColor(Color.rgb(200,0,0));
+				mOutputString.setText(outputStr);
+				returnStatus = false;
+			}
+		}
+		
+		
 		//============================================================================
 
 		mInputString.setText("");
@@ -165,8 +194,9 @@ public class MainActivity extends Activity {
 			mLength3 = triangleLengthArr[2];
 
 			if(checkLengths()){
+				String triangleType = getTriangleType(mLength1, mLength2, mLength3);
 				//Set Success Msg for OutputStr
-				outputStr = " [" + mLength1 + ", " + mLength2 + ", " + mLength3 + "] = ";
+				outputStr = " [" + mLength1 + ", " + mLength2 + ", " + mLength3 + "] = " + triangleType;
 				Log.d(sTag, "Triangle lengths Text: " + mLength1 + " " + mLength2 + " " + mLength3 +  " Sides:" + triangleLengthArr.length);
 				
 				//Set Output Message
@@ -290,7 +320,16 @@ public class MainActivity extends Activity {
 //		//============================================================================
 
 	}
-		
+	
+	//Determine Triangle Type Based on side lengths
+	private String getTriangleType(float sideALength, float sideBLength, float sideCLength){
+		if(sideALength == sideBLength && sideALength == sideCLength){
+			return "Equilateral";
+		}else if(sideALength == sideBLength || sideALength == sideCLength || sideBLength == sideCLength){
+			return "Isosceles";
+		}
+		return "Scalene";
+	}
 	
 //	private boolean checkInputHasThreePositiveNumericValues(){
 //		String inputStr = mInput.getText().toString();
