@@ -160,7 +160,7 @@ public class MainActivity extends Activity {
 		//Get Triangle Lengths
 		float[] triangleLengthArr = StringUtils.ParseStringToNumericValues(inputStr);
 		
-		
+		//*** Validate Lengths and Output Results; Code Based on previous code below ***
 		//Verify we have 3 lengths
 		int numberOfTriangleLengths = triangleLengthArr.length;
 		String outputStr = "";
@@ -213,9 +213,7 @@ public class MainActivity extends Activity {
 			mOutputString.setText(outputStr);
 			mInputString.setText("");
 		}
-		
 
-		
 		return;
 		
 		
