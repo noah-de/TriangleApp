@@ -143,5 +143,42 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		assertTrue(getActivity().isFinishing());
 	}
+	
+	public void test_inputEquilateral(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("2 2 2");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertEquals("Alert confirms Equilateral", "Equilateral", mOutput.getText().toString());
+	}
+	
+	public void test_inputScalene(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("3 5 7");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertEquals("Alert confirms Scalene", "Scalene", mOutput.getText().toString());
+	}
+	
+	public void test_inputIsosceles(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("3 5 7");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertEquals("Alert confirms Isosceles", "Isosceles", mOutput.getText().toString());
+	}
+	
+	// these form a line (2,4,6), (4,9,5), (8,4,4)
+	public void test_inputLineFails(){
+		TouchUtils.tapView(this, mInput);
+		getInstrumentation().sendStringSync("2,4,6");
+		
+		TouchUtils.tapView(this, mButton1);
+		
+		assertEquals("Alert displays Error on bad line lengths", "Error", mOutput.getText().toString());
+	}
 
 }
