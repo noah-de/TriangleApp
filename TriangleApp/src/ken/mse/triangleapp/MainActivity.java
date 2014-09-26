@@ -1,3 +1,19 @@
+/******************************************************************************************
+ * Product: TriangleApp
+ * 
+ * Source File: MainActivity.java
+ * 
+ * Description: Implements primary functionality to fulfill product goals of TriangleApp.
+ * 
+ * Developers: Noah Spahn, Keir Trotter, Eric Yan
+ * 
+ * Release History:
+ * 10/03/2014  Sprint 3 Release, V3
+ * 09/26/2014  Sprint 2 Release, V2
+ * 09/19/2014  Sprint 1 Release, V1
+ * 
+*******************************************************************************************/
+
 package ken.mse.triangleapp;
 
 import android.app.Activity;
@@ -8,6 +24,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.graphics.Color;
+
 
 public class MainActivity extends Activity {
 	//Activity's Tag for logs
@@ -164,11 +181,6 @@ public class MainActivity extends Activity {
 			return;
 		}
 		
-//		//Check if Input String has Valid Triangle Lengths
-//		boolean hasValidTriangleLengths = checkInputHasThreePositiveNumericValues();
-//		if(!hasValidTriangleLengths){
-//			return;
-//		}
 		
 		//Get Triangle Lengths
 		float[] triangleLengthArr = StringUtils.ParseStringToNumericValues(inputStr);
@@ -228,108 +240,6 @@ public class MainActivity extends Activity {
 		}
 
 		return;
-		
-		
-		
-//		
-//	    // Do something in response to button
-//
-//		// Pull in the text input string
-//		mInputString = (TextView) findViewById(R.id.input1);
-//
-//		mOutputString = (TextView) findViewById(R.id.output);
-//		mOutputString.setTextColor(Color.rgb(155,0,0)); // default color
-//
-//		// Output lengths
-//		String lengthsTextStr = mInputString.getText().toString();
-//		
-////		String outputStr = "";
-//
-//		// Parse input
-//		// take space, ',', or ';' as delimiter
-//		String delims = "[ ,;]";
-//		String[] tokens = lengthsTextStr.split(delims);
-//
-//		
-//		int numberOfTriangleLengths = tokens.length;
-//		
-//		if(numberOfTriangleLengths >= 1)
-//		{
-//			mLength1 = Float.parseFloat(tokens[0]);
-//		}
-//		
-//		if(numberOfTriangleLengths >= 2)
-//		{
-//			mLength2 = Float.parseFloat(tokens[1]);
-//		}
-//		
-//		if(numberOfTriangleLengths >= 3)
-//		{
-//			mLength3 = Float.parseFloat(tokens[2]);
-//		}
-//
-//		// Exit app if 0 entered
-//		if(mLength1 == 0)
-//		{
-//			mOutputString.setText("The End");
-//			Log.d(sTag, "The End");
-//
-//			// Wait 2 seconds before exiting to allow viewing
-//			// of exit message :TODO: may not be working right
-//			SystemClock.sleep(2000);
-//
-//			// believe this is launching a separate thread
-//			finish();
-//		}
-//
-//		final int SidesOfTriangle = 3;
-//
-//		//:TODO: is this not a test in itself? not sure where this would be
-//		// implemented in TriangleAppUnitTesting
-//		// Check number of lengths
-//		//============================================================================
-//		if((numberOfTriangleLengths < SidesOfTriangle) && (mLength1 != 0))
-//		{
-//
-//			if(numberOfTriangleLengths == 1)
-//			{
-//				outputStr = " [" + mLength1 + ", ] invalid input (need more input)";
-//			}
-//			
-//			if(numberOfTriangleLengths == 2)
-//			{
-//				outputStr = " [" + mLength1 + ", " + mLength2 + ", ] invalid input (need more input)";
-//			}
-//						
-//			
-//			mOutputString.setTextColor(Color.rgb(200,0,0));
-//			mOutputString.setText(outputStr);
-//			Log.d(sTag, "Triangle lengths Text: " + lengthsTextStr + " Bad Sides:" + numberOfTriangleLengths);
-//		}
-//		else if((numberOfTriangleLengths > SidesOfTriangle) && (mLength1 != 0))
-//		{
-//			outputStr = " [" + mLength1 + ", " + mLength2 + ", " + mLength3 + "...]  = invalid input (too much input)";
-//			mOutputString.setTextColor(Color.rgb(200,0,0));
-//			mOutputString.setText(outputStr);
-//			Log.d(sTag, "Triangle lengths Text: " + lengthsTextStr + " Bad Sides:" + numberOfTriangleLengths);
-//		}
-//		else if((numberOfTriangleLengths == SidesOfTriangle) && (mLength1 != 0))
-//		{
-//			mLength1 = Float.parseFloat(tokens[0]);
-//			mLength2 = Float.parseFloat(tokens[1]);
-//			mLength3 = Float.parseFloat(tokens[2]);
-//
-//			if(checkLengths())
-//			{
-//				outputStr = " [" + mLength1 + ", " + mLength2 + ", " + mLength3 + "] = ";
-//				mOutputString.setText(outputStr);
-//				mInputString.setText("");
-//
-//				Log.d(sTag, "Triangle lengths Text: " + mLength1 + " " + mLength2 + " " + mLength3 +  " Sides:" + numberOfTriangleLengths);
-//			}
-//		}
-//		//============================================================================
-
 	}
 	
 	//Determine Triangle Type Based on side lengths
@@ -342,15 +252,4 @@ public class MainActivity extends Activity {
 		return "Scalene";
 	}
 	
-//	private boolean checkInputHasThreePositiveNumericValues(){
-//		String inputStr = mInput.getText().toString();
-//		
-//		//Check if input provided 3 numbers
-//		int positiveNumericValuesCount = StringUtils.CountPositiveNumericValuesInString(inputStr);
-//		if(positiveNumericValuesCount == 3){
-//			return true;
-//		}
-//		return false;
-//		
-//	}
 }
