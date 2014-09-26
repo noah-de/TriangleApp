@@ -116,6 +116,13 @@ public class MainActivity extends Activity {
 				mOutputString.setTextColor(Color.rgb(200,0,0));
 				mOutputString.setText(outputStr);
 				returnStatus = false;
+			}else if(mLength1 == mLength2 + mLength3 || mLength2 == mLength1 + mLength3 || mLength3 == mLength1 + mLength2){
+				outputStr = outputStr + " Invalid!\n"
+						+ " Any side of a triangle must be shorter than the sum of the other two sides: "
+						+ mLength1 + " = " + mLength2 + " + " + mLength3;
+				mOutputString.setTextColor(Color.rgb(200,0,0));
+				mOutputString.setText(outputStr);
+				returnStatus = false;
 			}
 		}
 		
