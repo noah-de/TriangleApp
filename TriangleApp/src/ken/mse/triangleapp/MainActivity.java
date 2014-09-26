@@ -142,6 +142,7 @@ public class MainActivity extends Activity {
 		//Check if user wants to exit
 		// Exit app if 0 entered
 		if(inputStr.trim().equals("0")){
+			mOutputString.setTextColor(Color.rgb(0,0,0));
 			mOutputString.setText("The End");
 			Log.d(sTag, "The End");
 
