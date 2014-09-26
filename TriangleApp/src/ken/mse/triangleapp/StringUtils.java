@@ -16,7 +16,7 @@ public class StringUtils {
 		//Count how many are numeric
 		ArrayList<String> lstValidNumericStr = new ArrayList<String>();
 		for(String str: splitStr){
-			if(CheckStringIsPositiveNumeric(str)){
+			if(CheckStringIsNumeric(str)){
 				lstValidNumericStr.add(str);
 			}
 		}
@@ -41,7 +41,7 @@ public class StringUtils {
 		//Count how many are numeric
 		int countNumeric = 0;
 		for(String str: splitStr){
-			if(CheckStringIsPositiveNumeric(str)){
+			if(CheckStringIsNumeric(str)){
 				countNumeric++;
 			}
 		}
@@ -49,7 +49,7 @@ public class StringUtils {
 		return countNumeric;
 	}
 	
-	public static boolean CheckStringIsPositiveNumeric(String numericStr){
+	public static boolean CheckStringIsNumeric(String numericStr){
 		if(numericStr == null){
 			return false;
 		}
@@ -58,6 +58,6 @@ public class StringUtils {
 		String testString = numericStr.trim();
 		
 		//Check if string is numeric
-		return testString.matches("^[0-9]+(.[0-9]+)?");
+		return testString.matches("^-?[0-9]+(.[0-9]+)?");
 	}
 }
