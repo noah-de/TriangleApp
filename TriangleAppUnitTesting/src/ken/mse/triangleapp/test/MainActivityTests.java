@@ -1,3 +1,19 @@
+/******************************************************************************************
+ * Product: TriangleApp
+ * 
+ * Source File: MainActivityTests.java
+ * 
+ * Description: Implements primary functionality to fulfill TDD in TriangleApp.
+ * 
+ * Developers: Noah Spahn, Keir Trotter, Eric Yan
+ * 
+ * Release History:
+ * 10/03/2014  Sprint 3 Release, V3
+ * 09/26/2014  Sprint 2 Release, V2
+ * 09/19/2014  Sprint 1 Release, V1
+ * 
+*******************************************************************************************/
+
 package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
@@ -103,7 +119,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		TouchUtils.tapView(this, mButton1);
 		
 		assertTrue("Message does not contain expected string", mOutput.getText().toString().contains("3.0, 5.0, 7.0"));
-//		assertFalse("Alert displays false alert", mOutput.getText().toString().contains("invalid input"));
 	}
 
 
@@ -125,7 +140,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		TouchUtils.tapView(this, mButton1);
 		String test = mOutput.getText().toString();
 		assertTrue("Message does not contain expected string", mOutput.getText().toString().contains("not between 1 and 100"));
-//		assertFalse("Alert displays false alert", mOutput.getText().toString().contains("invalid input"));
 	}
 	
 	public void test_inputZeroDisplaysMessage(){
@@ -157,7 +171,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		TouchUtils.tapView(this, mButton1);
 		
-//		assertEquals("Alert confirms Equilateral", "Equilateral", mOutput.getText().toString());
 		assertTrue("Alert confirms Equilateral", mOutput.getText().toString().contains("Equilateral"));
 	}
 	
@@ -167,7 +180,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		TouchUtils.tapView(this, mButton1);
 
-//		assertEquals("Alert confirms Scalene", "Scalene", mOutput.getText().toString());
 		assertTrue("Alert confirms Scalene", mOutput.getText().toString().contains("Scalene"));
 	}
 	
@@ -177,7 +189,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		TouchUtils.tapView(this, mButton1);
 		
-//		assertEquals("Alert confirms Isosceles", "Isosceles", mOutput.getText().toString());
 		assertTrue("Alert confirms Isosceles", mOutput.getText().toString().contains("Isosceles"));
 	}
 	
@@ -188,56 +199,6 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 		
 		TouchUtils.tapView(this, mButton1);
 		
-//		assertEquals("Alert displays Error on bad line lengths", "Error", mOutput.getText().toString());
 		assertTrue("Alert displays Error on bad line lengths", mOutput.getText().toString().contains("Invalid"));
 	}
-
-	
-//	//Eric - Was Testing StringUtils
-//	public void test_inputHasThreePositiveNumericValues(){
-//		//Simulate user typing '2,5,7'
-//		TouchUtils.tapView(this, mInput);
-//		getInstrumentation().sendStringSync("2,5,7");
-//		
-//		//Check input String has 3 positive numbers
-//		int countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
-//		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
-//		
-//		//Clear Input
-//		int inputStrCount = mInput.getText().length();
-//		for(int i=0; i < inputStrCount; i++){
-//			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
-//		}
-//		
-//		
-//		//Simulate user typing '2;5;7'
-//		TouchUtils.tapView(this, mInput);
-//		getInstrumentation().sendStringSync("2;5;7");
-//		
-//		//Check input String has 3 positive numbers
-//		countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
-//		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
-//		
-//		//Clear Input
-//		inputStrCount = mInput.getText().length();
-//		for(int i=0; i < inputStrCount; i++){
-//			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
-//		}
-//		
-//		
-//		
-//		//Simulate user typing '2 5 7'
-//		TouchUtils.tapView(this, mInput);
-//		getInstrumentation().sendStringSync("2 5 7");
-//		
-//		//Check input String has 3 positive numbers
-//		countNumeric = StringUtils.CountPositiveNumericValuesInString(mInput.getText().toString());
-//		assertEquals("Failed: More than 3 numbers parsed: Has " + Integer.toString(countNumeric), 3, countNumeric);
-//		
-//		//Clear Input
-//		inputStrCount = mInput.getText().length();
-//		for(int i=0; i < inputStrCount; i++){
-//			getInstrumentation().sendCharacterSync(KeyEvent.KEYCODE_DEL);
-//		}
-//	}
 }

@@ -1,3 +1,20 @@
+/******************************************************************************************
+ * Product: TriangleApp
+ * 
+ * Source File: StringUtils.java
+ * 
+ * Description: Implements methods to manipulate text strings for TriangleApp.
+ * 
+ * Developers: Noah Spahn, Keir Trotter, Eric Yan
+ * 
+ * Release History:
+ * 10/03/2014  Sprint 3 Release, V3
+ * 09/26/2014  Sprint 2 Release, V2
+ * 09/19/2014  Sprint 1 Release, V1
+ * 
+*******************************************************************************************/
+
+
 package ken.mse.triangleapp;
 
 import java.util.ArrayList;
