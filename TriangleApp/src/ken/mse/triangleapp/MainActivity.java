@@ -163,6 +163,10 @@ public class MainActivity extends Activity {
 		//Get Input String
 		String inputStr = mInput.getText().toString();
 		
+		
+		//Triangle t = new Triangle();
+
+		
 		//Check if user wants to exit
 		// Exit app if 0 entered
 		if(inputStr.trim().equals("0")){
