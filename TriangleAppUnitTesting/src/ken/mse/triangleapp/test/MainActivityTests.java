@@ -17,10 +17,8 @@
 package ken.mse.triangleapp.test;
 
 import ken.mse.triangleapp.MainActivity;
-import ken.mse.triangleapp.StringUtils;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.TouchUtils;
-import android.view.KeyEvent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -136,9 +134,7 @@ public class MainActivityTests extends ActivityInstrumentationTestCase2<MainActi
 	public void test_inputLowRangeChecked(){
 		TouchUtils.clickView(this, mInput);
 		getInstrumentation().sendStringSync("-2 5 7");
-		
 		TouchUtils.clickView(this, mButton1);
-		String test = mOutput.getText().toString();
 		assertTrue("Message does not contain expected string", mOutput.getText().toString().contains("not between 1 and 100"));
 	}
 	
